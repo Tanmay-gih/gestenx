@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Your Brand</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-container {
+      display: flex;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .login-left {
+      flex: 1;
+      background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
+                  url("../signflow/181ba33a-ce39-4315-b325-c700e9db88d4.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      color: white;
+      text-align: center;
+    }
+
+    .login-left h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .login-left p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .login-right {
+      flex: 1;
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .login-right h2 {
+      color: #333;
+      margin-bottom: 32px;
+      font-weight: 500;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.3s ease;
+      background-color: #fafafa;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #667eea;
+      background-color: white;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 14px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 8px;
+    }
+
+    .login-button:hover {
+      background: #5a6fd8;
+    }
+
+    .guest-button {
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      color: #667eea;
+      border: 2px solid #667eea;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+    }
+
+    .guest-button:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .helper {
+      margin: 16px 0;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+
+    .helper a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .helper a:hover {
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 20px 0;
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        flex-direction: column;
+        max-width: 400px;
+      }
+
+      .login-left {
+        padding: 30px 20px;
+        min-height: 200px;
+      }
+
+      .login-left h1 {
+        font-size: 24px;
+      }
+
+      .login-right {
+        padding: 40px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-left">
+      <div>
+        <h1>Welcome Back</h1>
+        <p>Sign in to access your account and continue your journey with us.</p>
+      </div>
+    </div>
+    
+    <div class="login-right">
+      <h2>Sign In</h2>
+      
+      <form action="/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email or Username</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email or username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit" class="login-button">Sign In</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <button type="button" class="guest-button" onclick="guestLogin()">Continue as Guest</button>
+      
+      <button type="button" class="guest-button" onclick="signUp()" style="margin-top: 12px; background: #667eea; color: white; border: none;">Sign Up</button>
+
+      <div class="helper">
+        <a href="/forgot-password">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function guestLogin() {
+      window.location.href = 'guest-dashboard.html';
+    }
+    
+    function signUp() {
+      window.location.href = 'signup.html';
+    }
+  </script>
+</body>
+</html>
